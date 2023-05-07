@@ -1,8 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const Defensivo = require('./models/defensivo');
-const Doenca = require('./models/doenca');
+const Defensivo = require('../models/defensivo');
+const Doenca = require('../models/doenca');
+const router = express.Router();
 
 //Rotas para defensivos
 //Retorna todos os defensivos
@@ -93,3 +94,5 @@ router.delete('/doencas/:id', async (req, res) => {
   await Doenca.findByIdAndDelete(req.params.id);
   res.send({ message: 'Doença removida com sucesso' });
 });
+
+module.exports = router;
